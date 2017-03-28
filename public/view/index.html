@@ -12,24 +12,14 @@
     <script type="text/javascript" src="scripts/t01.js"></script>
   </head>
   <body ng-app="app">
-    <div ng-controller="emp">
-      <table  class="table table-striped table-bordered">
-          <thead>
-            <tr>
-              <td>#</td>
-              <td>Name</td>
-              <td>Salary</td>
-              <td>Dept</td>
-            </tr>
-          </thead>
-          <tr ng-repeat="oEmp in employees">
-          <td>{{oEmp.empno}}</td>
-          <td>{{oEmp.ename}}</td>
-          <td>{{oEmp.sal}}
-          <span ng-if="oEmp.sal > 7000" class="glyphicon glyphicon-warning-sign"></span></td>
-          <td>{{oEmp.deptno}}</td>
-        </tr>
-      </table>
+    <div ng-controller="msg">
+        <div message text="first">
+          <div message text="..second">
+            <div message text="...third">
+
+            </div>
+          </div>
+        </div>
     </div>
   </body>
 </html>

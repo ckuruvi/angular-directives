@@ -19,7 +19,7 @@ app.use("/employees",employees);
 
 app.get('/*',function(req,res){
 
-  res.sendFile(path.join(__dirname,'public/view/index.custom.directives.html'));
+  res.sendFile(path.join(__dirname,'public/view/index.html'));
 })
 
 var server=app.listen(3000, function(){
