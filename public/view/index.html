@@ -13,12 +13,8 @@
   </head>
   <body ng-app="app">
     <div ng-controller="msg">
-        <div message text="first">
-          <div message text="..second">
-            <div message text="...third">
-
-            </div>
-          </div>
+        <div message  text="{{i}}" ng-repeat="i in [1,2,3,4]">
+          {{i}}
         </div>
     </div>
   </body>
