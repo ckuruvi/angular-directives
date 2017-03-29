@@ -2,118 +2,54 @@ var app = angular.module("app",[]);
 
 app.controller("msg",['$scope',function($scope){
 
+$scope.a=1;
+$scope.b=2;
+$scope.c=4;
+
+// $scope.updateC=function(){
+//   $scope.c=$scope.a * 4;
+// }
+//
+// $scope.$watch('a',function(newVal,oldVal){
+//
+//   if(newVal != oldVal){
+//     $scope.b=$scope.a * 2;
+//   }
+// })
+//
+// $scope.$watch('b',function(newVal,oldVal){
+//
+//   if(newVal != oldVal){
+//     $scope.c=$scope.b * 2;
+//   }
+// })
+//
+//
+// $scope.$watch('c',function(newVal,oldVal){
+//
+//   if(newVal != oldVal){
+//     console.log("Updated C to "+ newVal);
+//   }
+// })
+
+// $scope.$watchGroup(['a','b'],function(newVal,oldVal){
+//
+//   if(newVal != oldVal){
+//     $scope.c=$scope.b * $scope.a;
+//   }
+// })
 
 
+$scope.o = {
+  a:1,
+  b:2,
+  c:4
+};
+
+$scope.$watch('o',function(newVal,oldVal){
+  console.log("inside watch");
+  if(newVal != oldVal){
+    $scope.o.c=$scope.o.a * $scope.o.b;
+  }
+},true);
 }]);
-
-//****** with compile, controller , pre and post ************
-
-// app.directive('message',function($interpolate){
-//
-//   return {
-//     compile: function(tElement,tAttributes){
-//       console.log(tAttributes.text + ' -In compile');
-//       tElement.css("border","1px solid #C0C0C0");
-//
-//       return {
-//         pre: function(scope, iElement, iAttributes){
-//              console.log(iAttributes.text + "-In Pre ");
-//
-//         },
-//         post: function(scope,iElement,iAttributes){
-//             console.log(iAttributes.text + "-In Post ");
-//             if(iAttributes.text==="3"){
-//               iElement.css("border","1px solid #FF0000");
-//             }
-//             iElement.on('click',scope.btnClick);
-//         }
-//       };
-//     },
-//     controller: function($scope,$element,$attrs){
-//       var v=$interpolate($attrs.text)($scope)
-//
-//       console.log(($attrs.text + '-In Controller'));
-//       console.log(v + '-Interpolated text');
-//
-//       $scope.btnClick=function(){
-//         alert(v);
-//       }
-//     }
-//   }
-// });
-
-
-// *********without compile******************
-// app.directive('message',function($interpolate){
-//
-// return {
-// link:  {
-//         pre: function(scope, iElement, iAttributes){
-//              console.log(iAttributes.text + "-In Pre ");
-//
-//         },
-//         post: function(scope,iElement,iAttributes){
-//             console.log(iAttributes.text + "-In Post ");
-//             if(iAttributes.text==="3"){
-//               iElement.css("border","1px solid #FF0000");
-//             }
-//             iElement.on('click',scope.btnClick);
-//         }
-//     },
-//     controller: function($scope,$element,$attrs){
-//       var v=$interpolate($attrs.text)($scope)
-//
-//       console.log(($attrs.text + '-In Controller'));
-//       console.log(v + '-Interpolated text');
-//
-//       $scope.btnClick=function(){
-//         alert(v);
-//       }
-//     }
-//     }
-// });
-
-
-//****** with compile, controller and post ************
-// app.directive('message',function($interpolate){
-//
-//   return {
-//     compile: function(tElement,tAttributes){
-//       console.log(tAttributes.text + ' -In compile');
-//       tElement.css("border","1px solid #C0C0C0");
-//
-//      // post-link function
-//       return function(scope,iElement,iAttributes){
-//             console.log(iAttributes.text + "-In Post ");
-//             if(iAttributes.text==="3"){
-//               iElement.css("border","1px solid #FF0000");
-//             }
-//             iElement.on('click',scope.btnClick);
-//           }
-//         },
-//     controller: function($scope,$element,$attrs){
-//       var v=$interpolate($attrs.text)($scope)
-//
-//       console.log(($attrs.text + '-In Controller'));
-//       console.log(v + '-Interpolated text');
-//
-//       $scope.btnClick=function(){
-//         alert(v);
-//       }
-//     }
-//   }
-// });
-
-
-//*********Just post-link function***********
-app.directive('message',function($interpolate){
-
-     // post-link function
-      return function(scope,iElement,iAttributes){
-            console.log(iAttributes.text + "-In Post ");
-            if(iAttributes.text==="3"){
-              iElement.css("border","1px solid #FF0000");
-            }
-            iElement.on('click',scope.btnClick);
-          }
-});
