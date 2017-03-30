@@ -12,7 +12,7 @@
     <script type="text/javascript" src="scripts/t01.js"></script>
   </head>
   <body ng-app="app">
-    <div ng-controller="emp">
+    <div id="div1" ng-controller="emp">
         a= <input ng-model="a">
         <div>a= {{a}}</div>
         <hr>
@@ -20,9 +20,10 @@
         b= <input ng-model="b">
         <div>b= {{b}}</div>
         <hr>
-        c= <input ng-model="c">
-        <div>c= {{c}}</div>
-        <hr>
+        <button ng-click="calcSum()">Calc Sum</button>
+        <button onclick="btnClick()">Sum</button>
+        <div> sum = {{s}}    </div>
+
     </div>
   </body>
 </html>
