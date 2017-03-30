@@ -1,24 +1,29 @@
 var app = angular.module("app",[]);
 
-app.controller("emp",['$scope','$rootScope',function($scope,$rootScope){
+app.controller("msg",['$scope','$rootScope',function($scope,$rootScope){
 
-$scope.a=1;
-$scope.b=2;
-$scope.s=0;
+$scope.data=[
+  {v:17,r:0},
+  {v:24,r:0},
+  {v:32,r:0},
+  {v:48,r:0},
+]
 
-$scope.calcSum= function(){
-   $scope.s=Number($scope.a) + Number($scope.b);
- };
 }]);
 
-
-var btnClick=function(){
-
-  var $scope=angular.element($("#div1")).scope();
-  // $scope.s=Number($scope.a) + Number($scope.b);
-  // $scope.$apply();
-
-  $scope.$apply(function(){
-    $scope.s=Number($scope.a) + Number($scope.b);
-  });
-}
+app.directive('message',function(){
+  return{
+    templateUrl:'view/info-msg.htm',
+    compile: function(){
+      return function(scope,iElement,iAttribute,controller){
+        iElement.find("#btnSum").on("click",scope.btnClick);
+      }
+    },
+    controller: function($scope, $element, $attrs){
+      $scope.btnClick=function(){
+        $scope.o.r=$scope.o.v * $scope.o.v;
+        $scope.$digest();
+      }
+    }
+  }
+});
