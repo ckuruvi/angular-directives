@@ -12,11 +12,15 @@
     <script type="text/javascript" src="scripts/t01.js"></script>
   </head>
   <body ng-app="app">
-    <div id="div1" ng-controller="msg">
+    <div id="div1" ng-controller="sample">
+      a = {{a}}<br>
+      b = {{b}}<br>
 
-      <div message ng-repeat="o in data">
-      </div>
+      Result = {{a * b}}
 
+      <hr>
+      <button ng-click="demoEval()">Demo Eval</button><br>
+      <button ng-click="demoParse()">Demo Parse</button>
     </div>
   </body>
 </html>
