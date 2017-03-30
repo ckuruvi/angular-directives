@@ -12,12 +12,17 @@
     <script type="text/javascript" src="scripts/t01.js"></script>
   </head>
   <body ng-app="app">
-    <div ng-controller="msg">
-        a= <input ng-model="o.a" ng-change="updateC()">
+    <div ng-controller="emp">
+        a= <input ng-model="a">
+        <div>a= {{a}}</div>
+        <hr>
 
-        <div>a = {{a}}</div>
-        <div>b = {{b}}</div>
-        <div>c = {{o.c}}</div>
+        b= <input ng-model="b">
+        <div>b= {{b}}</div>
+        <hr>
+        c= <input ng-model="c">
+        <div>c= {{c}}</div>
+        <hr>
     </div>
   </body>
 </html>
